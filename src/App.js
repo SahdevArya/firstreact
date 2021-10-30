@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './component.js/Navbar';
+import TextForm from './component.js/TextForm';
+import About from './component.js/About';
+import Alert from './component.js/Alert'
+import React, { useState } from 'react'
+import alert from './component.js/Alert';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [Mode, setMode] = useState('light')
+
+
+
+const toglemode =()=>
+  { 
+        if(Mode==='dark'){
+          setMode ('light')
+          
+          
+        
+        }
+        else
+       {
+          setMode ('dark')
+        }
+   }
+   
+
+ 
+return (
+    <>
+   
+   
+   <Navbar heading = "My-lab" tab1="Home" tab2 = "AboutMy-lab" mode={Mode} toglemode = {toglemode} />
+      
+    <div className="container my-3">
+      
+   
+   
+     <TextForm headline="Enter the text below"  /> 
+     
+     <About />
+    
+     
     </div>
-  );
+    
+      
+  
+  
+        </> ) 
 }
+  
+
+   
+
+
 
 export default App;
